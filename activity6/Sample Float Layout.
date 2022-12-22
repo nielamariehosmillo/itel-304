@@ -1,0 +1,22 @@
+from kivy.app import App
+from kivy.lang import Builder
+
+root = Builder.load_string(&#39;&#39;&#39;
+FloatLayout:
+    canvas.before:
+        Color:
+            rgba: 0, 0, 255, 0.3
+        Rectangle:
+            # self here refers to the widget i.e FloatLayout
+            pos: self.pos
+            size: self.size
+    Button:
+        text: &#39;Hello World!!&#39;
+        size_hint: .5, .5
+        pos_hint: {&#39;center_x&#39;:.5, &#39;center_y&#39;: .5}
+&#39;&#39;&#39;)
+class MainApp(App):
+    def build(self):
+        return root
+if __name__ == &#39;__main__&#39;:
+    MainApp().run()
